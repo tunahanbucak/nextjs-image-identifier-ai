@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { Button } from "./ui/button";
 
 export default function HomePage() {
   const [image, setImage] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
+  const [keywords, setKeywords] = useState<string[]>([]);
+  const [relatedQuestion, setRelatedQuestion] = useState<string[]>([]);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -38,8 +40,17 @@ export default function HomePage() {
 
       const response = await result.response;
 
-      const text = response.text().trim();
+      const text = response
+        .text()
+        .trim()
+        .replace(/```/g, "")
+        .replace(/\*\*/g, "")
+        .replace(/\*/g, "")
+        .replace(/-\s*/g, "")
+        .replace(/\n\s*\n/g, "");
       setResult(text);
+      generateKeywords(text);
+      await generatedRelatedQuestions(text);
     } catch (error) {
       console.log((error as Error)?.message);
     } finally {
@@ -69,10 +80,61 @@ export default function HomePage() {
     });
   };
 
+  const generateKeywords = (text: string) => {
+    const words = text.split(/\s+/);
+    const keywordsSet = new Set<string>();
+
+    words.forEach((word) => {
+      if (
+        word.length > 4 &&
+        !["this", "that", "with", "from", "have"].includes(word.toLowerCase())
+      ) {
+        keywordsSet.add(word);
+      }
+    });
+    setKeywords(Array.from(keywordsSet).slice(0, 5));
+  };
+
+  const regenerateContent = (keyword: string) => {
+    identifyImage(`Focus more on aspects related to "${keyword}.`);
+  };
+
+  const generatedRelatedQuestions = async (text: string) => {
+    const genAI = new GoogleGenerativeAI(
+      process.env.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY!
+    );
+
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+    });
+
+    try {
+      const result = await model.generateContent([
+        `Based on the following onformation about an image, generate 5 related questions that someone might ask to learn more about the subject:
+        ${text} 
+        Format the output as a simple list of questions, one per line.
+        `,
+      ]);
+
+      const response = await result.response;
+      const questions = response.text().trim().split("\n");
+      setRelatedQuestion(questions);
+    } catch (error) {
+      console.log((error as Error)?.message);
+      setRelatedQuestion([]);
+    }
+  };
+
+  const askRelatedQuestion = (question: string) => {
+    identifyImage(
+      `Answer the following question about the image : "${question}". `
+    );
+  };
+
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-        <div className="p-8">
+        <div className="p-8 ">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
             Identify Your Image
           </h2>
@@ -113,7 +175,7 @@ export default function HomePage() {
         </div>
 
         {result && (
-          <div className="bg-blue-50 p-8 border-t border-blue-100">
+          <div className="bg-blue-50 p-8 border-t border-blue-100 ">
             <h3 className="text-2xl font-bold text-blue-800 mb-4">
               Image Information
             </h3>
@@ -143,10 +205,45 @@ export default function HomePage() {
                       {line}
                     </p>
                   );
-                  return null;
                 }
+                return null;
               })}
             </div>
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold mb-2 text-blue-700">
+                Realted Keywords
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {keywords.map((keyword, index) => (
+                  <Button
+                    key={index}
+                    onClick={() => regenerateContent(keyword)}
+                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-200 transition duration-150 ease-in-out">
+                    {keyword}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {relatedQuestion.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2 text-blue-700">
+                  Realted Questions
+                </h4>
+                <ul className="space-y-2">
+                  {relatedQuestion.map((question, index) => (
+                    <li key={index}>
+                      <Button
+                        type="button"
+                        onClick={() => askRelatedQuestion(question)}
+                        className="text-left  w-full bg-blue-200 text-blue-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-200 transition duration-150 ease-in-out">
+                        {question}
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </div>
