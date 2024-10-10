@@ -132,7 +132,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main id="home" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="bg-gray-100 rounded-lg shadow-xl overflow-hidden">
         <div className="p-8 ">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
@@ -173,7 +173,6 @@ export default function HomePage() {
             {loading ? "Identifying" : "Identify Image"}
           </Button>
         </div>
-
         {result && (
           <div className="bg-blue-50 p-8 border-t border-blue-100 ">
             <h3 className="text-2xl font-bold text-blue-800 mb-4">

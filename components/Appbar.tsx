@@ -27,7 +27,7 @@ export default function Appbar() {
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center ">
                 <Link href={"/"}>
                   <div className="flex items-center">
                     <Image
@@ -42,7 +42,6 @@ export default function Appbar() {
                     </h1>
                   </div>
                 </Link>
-
                 <div className="hidden md:flex items-center space-x-6">
                   <ul className="flex space-x-4">
                     <Link
@@ -61,7 +60,7 @@ export default function Appbar() {
                       Features
                     </Link>
                   </ul>
-                  <Select>
+                  {/* <Select>
                     <SelectTrigger className="w-[120px]">
                       <SelectValue placeholder="EN" />
                     </SelectTrigger>
@@ -69,7 +68,7 @@ export default function Appbar() {
                       <SelectItem value="en">EN</SelectItem>
                       <SelectItem value="tr">TR</SelectItem>
                     </SelectContent>
-                  </Select>
+                  </Select> */}
                   {/* <div>
                     <Button
                       onClick={() =>
@@ -110,7 +109,7 @@ export default function Appbar() {
                     className="block text-gray-600 hover:text-blue-600 text-lg">
                     Features
                   </Link>
-                  <div className="mt-4">
+                  {/* <div className="mt-4">
                     <Select>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="EN" />
@@ -120,7 +119,7 @@ export default function Appbar() {
                         <SelectItem value="tr">TR</SelectItem>
                       </SelectContent>
                     </Select>
-                  </div>
+                  </div> */}
                 </ul>
               </Disclosure.Panel>
             </>

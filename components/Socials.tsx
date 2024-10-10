@@ -24,7 +24,7 @@ const icons = [
     name: <RiSkypeFill />,
   },
   {
-    path: "/",
+    path: "https://x.com/TunahanBucak",
     name: <RiTwitterXFill />,
   },
 

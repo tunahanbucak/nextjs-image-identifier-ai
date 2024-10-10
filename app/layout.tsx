@@ -24,7 +24,6 @@ export default function RootLayout({
         <Appbar />
         {children}
         <Footer />
-        {/* </ThemeProvider> */}
       </body>
     </html>
   );

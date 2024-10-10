@@ -3,7 +3,7 @@ import React from "react";
 export default function page() {
   return (
     <main className="min-h-screen  bg-gray-300 ">
-      <div className=" max-w-7xl mx-auto py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-gray-100 p-8 rounded-lg shadow-xl overflow-hidden">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
             How It Works
@@ -13,7 +13,7 @@ export default function page() {
               (step, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg shadow-md p-6 transition duration-150 ease-in-out transform hover:scale-105">
+                  className="bg-white rounded-lg shadow-md p-6 transition duration-150 ease-in-out transform hover:scale-105 cursor-pointer">
                   <div className="text-3xl font-bold text-blue-600 mb-4">
                     {index + 1}
                   </div>
