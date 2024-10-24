@@ -1,37 +1,30 @@
+import Form from "@/components/Form";
 import React from "react";
 
 export default function page() {
   return (
-    <section className="bg-gray-200 py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-8">
-          Contact Us
-        </h2>
-        <form className="bg-white p-8 rounded-lg shadow-md">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="p-4 border border-gray-300 rounded-md"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="p-4 border border-gray-300 rounded-md"
-              required
-            />
+    <section className="min-h-screen bg-gray-300 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-gray-100 rounded-lg  px-8 py-12">
+          <div className="grid xl:grid-cols-2 pt-12 mb-6 xl:mb-24">
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-x-4 text-black text-lg mb-4">
+                <span className="w-[80px] h-[2px] bg-black"></span>
+                Merhaba
+              </div>
+              <p className="text-muted-foreground text-lg mb-8 font-light max-w-[400px] ">
+                Size fotoğraflamamızı düşündüğünüz için çok teşekkür ederiz,
+                bizim için gerçekten büyük bir onur. Daha fazla öğrenmekle
+                ilgileniyor ya da bilgi almak istiyorsanız lütfen iletişim
+                formunu doldurun, sizinle bir an önce iletişime geçelim. Sizden
+                haber almak için sabırsızlanıyoruz..
+              </p>
+            </div>
+            <div className="lg:mt-24">
+              <Form />
+            </div>
           </div>
-          <textarea
-            placeholder="Your Message"
-            className="w-full p-4 border border-gray-300 rounded-md mt-4"
-            required></textarea>
-          <button
-            type="submit"
-            className="bg-blue-600 text-white py-2 px-6 rounded-lg mt-4 hover:bg-blue-500 transition duration-200">
-            Send Message
-          </button>
-        </form>
+        </div>
       </div>
     </section>
   );
