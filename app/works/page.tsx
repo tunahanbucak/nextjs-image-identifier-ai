@@ -139,7 +139,7 @@ export default function Page() {
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-md p-6 text-center transition-transform transform hover:scale-105">
-                <p className="text-gray-600">"{testimonial.text}"</p>
+                <p className="text-gray-600">{testimonial.text}</p>
                 <p className="mt-2 font-semibold text-gray-800">
                   - {testimonial.user}
                 </p>
