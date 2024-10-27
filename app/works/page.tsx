@@ -28,10 +28,10 @@ export default function Page() {
           <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-8">
             How It Works
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
             {[
               {
-                imgSrc: "/learn.svg",
+                imgSrc: "/upload.webp",
                 title: "Step 1: Learn",
                 description:
                   "Discover how our AI technology processes images for analysis.",
@@ -50,13 +50,13 @@ export default function Page() {
             ].map((step, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-6 text-center transform transition duration-300 hover:shadow-xl">
+                className="bg-white rounded-lg shadow-lg p-6 text-center transform transition duration-300 hover:shadow-xl cursor-pointer">
                 <Image
                   src={step.imgSrc}
                   alt={step.title}
                   width={120}
                   height={120}
-                  className="mb-4 mx-auto"
+                  className="mb-4 mx-auto w-40 h-40"
                 />
                 <h3 className="text-2xl font-semibold mb-2 text-gray-800">
                   {step.title}
@@ -78,30 +78,30 @@ export default function Page() {
                 title: "Fast Processing",
                 description:
                   "Our AI provides results in seconds, saving you time and effort.",
-                icon: "/fast.svg",
+                icon: "https://cdn-icons-png.flaticon.com/512/10612/10612959.png",
               },
               {
                 title: "User-Friendly Interface",
                 description:
                   "Designed for simplicity, making it easy for anyone to use.",
-                icon: "/user-friendly.png",
+                icon: "https://cdn-icons-png.flaticon.com/512/4946/4946395.png",
               },
               {
                 title: "Reliable Insights",
                 description:
                   "Get accurate and detailed analysis for your images.",
-                icon: "/reliable.svg",
+                icon: "https://cdn-icons-png.flaticon.com/512/4946/4946395.png",
               },
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                className="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
                 <Image
                   src={feature.icon}
                   alt={feature.title}
                   width={80}
                   height={80}
-                  className="mb-4 mx-auto"
+                  className="mb-4 mx-auto w-40 h-40"
                 />
                 <h3 className="text-xl font-semibold mb-2 text-gray-800">
                   {feature.title}
@@ -138,7 +138,7 @@ export default function Page() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md p-6 text-center transition-transform transform hover:scale-105">
+                className="bg-white rounded-lg shadow-md p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
                 <p className="text-gray-600">{testimonial.text}</p>
                 <p className="mt-2 font-semibold text-gray-800">
                   - {testimonial.user}
