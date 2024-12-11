@@ -1,37 +1,50 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-gray-200">
-      <section
-        className="relative bg-cover bg-center h-screen"
-        style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
-        <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-extrabold mb-4">
+    <main
+      className="min-h-screen bg-gray-200"
+      style={{
+        backgroundImage: "url('/ai-machine.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}>
+      <section className="relative bg-cover bg-center h-screen">
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
+        <div className="flex items-center justify-center h-full relative z-20 text-center text-white px-6">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl font-extrabold mb-4 animate__animated animate__fadeIn animate__delay-1s">
               Unlock the Power of AI
             </h1>
-            <p className="text-xl mb-8">
+            <p className="text-xl mb-8 animate__animated animate__fadeIn animate__delay-1s">
               Transform your images with cutting-edge AI analysis.
             </p>
-            <a
-              href="#steps"
-              className="bg-blue-600 py-2 px-4 rounded-lg font-semibold hover:bg-blue-500 transition duration-200">
-              Get Started
-            </a>
+            {/* <Image
+              src="/ai-machine.jpg"
+              alt="AI Image"
+              width={800}
+              height={300}
+              className="mx-auto mb-8 transform hover:scale-105 transition-transform duration-500"
+            /> */}
+            <Button className="bg-blue-600 py-2 px-4 rounded-lg font-semibold hover:bg-blue-500 transition duration-300 transform hover:scale-105">
+              <Link href="#steps">Get Started</Link>
+            </Button>
           </div>
         </div>
       </section>
       <section id="steps" className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-8">
+          <h2 className="text-4xl font-extrabold text-white text-center mb-8">
             How It Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
             {[
               {
-                imgSrc: "/upload.webp",
+                imgSrc: "/learn.jpg",
                 title: "Step 1: Learn",
                 description:
                   "Discover how our AI technology processes images for analysis.",
@@ -50,26 +63,26 @@ export default function Page() {
             ].map((step, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-6 text-center transform transition duration-300 hover:shadow-xl cursor-pointer">
+                className="bg-gray-500 rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
                 <Image
                   src={step.imgSrc}
                   alt={step.title}
                   width={120}
                   height={120}
-                  className="mb-4 mx-auto w-40 h-40"
+                  className="mb-4 mx-auto w-40 h-40 rounded-lg"
                 />
-                <h3 className="text-2xl font-semibold mb-2 text-gray-800">
+                <h3 className="text-2xl font-semibold mb-2 text-white">
                   {step.title}
                 </h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-white">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-gray-100 py-16">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-8">
+          <h2 className="text-4xl font-extrabold text-white text-center mb-8">
             Why Choose Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -95,7 +108,7 @@ export default function Page() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
+                className="bg-gray-300 rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
                 <Image
                   src={feature.icon}
                   alt={feature.title}
@@ -114,7 +127,7 @@ export default function Page() {
       </section>
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-8">
+          <h2 className="text-4xl font-extrabold text-white text-center mb-8">
             User Experiences
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

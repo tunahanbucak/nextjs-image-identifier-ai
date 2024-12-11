@@ -9,15 +9,15 @@ export default function page() {
           <div className="grid xl:grid-cols-2 pt-12 mb-6 xl:mb-24">
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-x-4 text-black text-lg mb-4">
-                <span className="w-[80px] h-[2px] bg-black"></span>
-                Merhaba
+                Görsellerinizi bizimle paylaştığınız için teşekkür ederiz!
               </div>
               <p className="text-muted-foreground text-lg mb-8 font-light max-w-[400px] ">
-                Size fotoğraflamamızı düşündüğünüz için çok teşekkür ederiz,
-                bizim için gerçekten büyük bir onur. Daha fazla öğrenmekle
-                ilgileniyor ya da bilgi almak istiyorsanız lütfen iletişim
-                formunu doldurun, sizinle bir an önce iletişime geçelim. Sizden
-                haber almak için sabırsızlanıyoruz..
+                Yapay zeka teknolojilerimizle size en iyi çözümleri sunmaktan
+                büyük mutluluk duyuyoruz. Daha fazla bilgi almak veya sürecimizi
+                daha yakından tanımak isterseniz, iletişim formumuzu
+                doldurabilirsiniz. Ekibimiz size en kısa sürede ulaşarak
+                ihtiyaçlarınıza özel bir yanıt sağlayacaktır. Sizinle çalışmayı
+                dört gözle bekliyoruz!
               </p>
             </div>
             <div className="lg:mt-24">
