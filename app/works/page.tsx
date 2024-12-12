@@ -1,3 +1,6 @@
+import { FeaturesSection } from "@/components/FeaturesSection";
+import { StepsSection } from "@/components/StepsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,161 +9,16 @@ import React from "react";
 export default function Page() {
   return (
     <main
-      className="min-h-screen bg-gray-200"
+      className="min-h-screen bg-gray-200 "
       style={{
         backgroundImage: "url('/ai-machine.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}>
-      <section className="relative bg-cover bg-center h-screen">
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
-        <div className="flex items-center justify-center h-full relative z-20 text-center text-white px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl font-extrabold mb-4 animate__animated animate__fadeIn animate__delay-1s">
-              Unlock the Power of AI
-            </h1>
-            <p className="text-xl mb-8 animate__animated animate__fadeIn animate__delay-1s">
-              Transform your images with cutting-edge AI analysis.
-            </p>
-            {/* <Image
-              src="/ai-machine.jpg"
-              alt="AI Image"
-              width={800}
-              height={300}
-              className="mx-auto mb-8 transform hover:scale-105 transition-transform duration-500"
-            /> */}
-            <Button className="bg-blue-600 py-2 px-4 rounded-lg font-semibold hover:bg-blue-500 transition duration-300 transform hover:scale-105">
-              <Link href="#steps">Get Started</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-      <section id="steps" className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-white text-center mb-8">
-            How It Works
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-            {[
-              {
-                imgSrc: "/learn.jpg",
-                title: "Step 1: Learn",
-                description:
-                  "Discover how our AI technology processes images for analysis.",
-              },
-              {
-                imgSrc: "/upload.webp",
-                title: "Step 2: Upload",
-                description: "Easily upload your image in just a few clicks.",
-              },
-              {
-                imgSrc: "/analysis.webp",
-                title: "Step 3: Analyze",
-                description:
-                  "Receive instant analysis and detailed insights about your image.",
-              },
-            ].map((step, index) => (
-              <div
-                key={index}
-                className="bg-gray-500 rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
-                <Image
-                  src={step.imgSrc}
-                  alt={step.title}
-                  width={120}
-                  height={120}
-                  className="mb-4 mx-auto w-40 h-40 rounded-lg"
-                />
-                <h3 className="text-2xl font-semibold mb-2 text-white">
-                  {step.title}
-                </h3>
-                <p className="text-white">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-white text-center mb-8">
-            Why Choose Us?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Fast Processing",
-                description:
-                  "Our AI provides results in seconds, saving you time and effort.",
-                icon: "https://cdn-icons-png.flaticon.com/512/10612/10612959.png",
-              },
-              {
-                title: "User-Friendly Interface",
-                description:
-                  "Designed for simplicity, making it easy for anyone to use.",
-                icon: "https://cdn-icons-png.flaticon.com/512/4946/4946395.png",
-              },
-              {
-                title: "Reliable Insights",
-                description:
-                  "Get accurate and detailed analysis for your images.",
-                icon: "https://cdn-icons-png.flaticon.com/512/4946/4946395.png",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="bg-gray-300 rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={80}
-                  height={80}
-                  className="mb-4 mx-auto w-40 h-40"
-                />
-                <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-white text-center mb-8">
-            User Experiences
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                text: "This AI service made my analysis process so easy!",
-                user: "User A",
-              },
-              {
-                text: "The results were insightful and accurate!",
-                user: "User B",
-              },
-              {
-                text: "I love how quickly it processes my images.",
-                user: "User C",
-              },
-              {
-                text: "Fantastic tool for anyone needing image analysis.",
-                user: "User D",
-              },
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-6 text-center transition-transform transform hover:scale-105 cursor-pointer">
-                <p className="text-gray-600">{testimonial.text}</p>
-                <p className="mt-2 font-semibold text-gray-800">
-                  - {testimonial.user}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StepsSection />
+      <FeaturesSection />
+      <TestimonialsSection />
     </main>
   );
 }

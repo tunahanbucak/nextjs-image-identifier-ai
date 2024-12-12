@@ -3,7 +3,15 @@ import React from "react";
 
 export default function page() {
   return (
-    <section className="min-h-screen bg-gray-300 ">
+    <section
+      className="min-h-screen bg-gray-300"
+      // style={{
+      //   backgroundImage: "url('/ai-contact.web')",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundAttachment: "fixed",
+      // }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-gray-100 rounded-lg  px-8 py-12">
           <div className="grid xl:grid-cols-2 pt-12 mb-6 xl:mb-24">
