@@ -6,10 +6,17 @@ import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 import { CiMenuBurger } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Appbar() {
   return (
-    <header className="bg-white shadow-sm ">
+    <header className=" shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 ">
         <Disclosure as="nav">
           {({ open }) => (
@@ -18,7 +25,7 @@ export default function Appbar() {
                 <Link href={"/"}>
                   <div className="flex items-center">
                     <Image
-                      src="/image-logo.jpg"
+                      src="/logo.png"
                       alt="logo"
                       width={50}
                       height={50}
@@ -52,6 +59,15 @@ export default function Appbar() {
                       Contact
                     </Link>
                   </ul>
+                  <Select>
+                    <SelectTrigger className="w-[100px]">
+                      <SelectValue placeholder="Türkçe" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="tr">Türkçe</SelectItem>
+                      <SelectItem value="en">İngilizce</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="md:hidden flex items-center">
                   <Disclosure.Button className="text-gray-600 hover:text-blue-600">

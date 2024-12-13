@@ -21,10 +21,9 @@ const steps = [
   },
 ];
 
-export function StepsSection() {
+export default function StepsSection() {
   return (
-    <section id="steps" className="py-16">
-      <div className="absolute inset-0 " />
+    <section className="py-16 ">
       <div className="flex items-center justify-center h-full relative z-20 text-center text-gray-600 px-6">
         <div className="max-w-3xl">
           <h1 className="text-5xl font-extrabold mb-4 animate__animated animate__fadeIn animate__delay-1s">

@@ -1,6 +1,7 @@
 import Feedback from "@/components/Feedback";
 import Hero from "@/components/Hero";
 import HomePage from "@/components/HomePage";
+import StepsSection from "@/components/StepsSection";
 
 export default function Home() {
   return (

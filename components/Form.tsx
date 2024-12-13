@@ -18,17 +18,14 @@ export default function Form() {
         <Input type="name" id="first name" placeholder="İsim" />
         <UserCheck className="absolute right-6 " size={20} />
       </div>
-
       <div className="relative flex items-center">
         <Input type="name" id="Last name" placeholder="Soyisim" />
         <UserRoundCheck className="absolute right-6 " size={20} />
       </div>
-
       <div className="relative flex items-center">
         <Input type="email" id="email" placeholder="E-posta" />
         <MailIcon className="absolute right-6 " size={20} />
       </div>
-
       <div className="relative flex items-center">
         <Textarea placeholder="Mesajınızı buraya yazın..." />
         <MessageSquare className="absolute top-4 right-6 " size={20} />

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <main className="min-h-screen  bg-gray-300 ">
+    <main className="min-h-screen bg-gray-300 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-gray-100 rounded-lg  px-8 py-12">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
