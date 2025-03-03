@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 
 export default function Feedback() {
   const [feedback, setFeedback] = useState("");
-
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log(feedback);
